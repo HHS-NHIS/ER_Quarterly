@@ -500,7 +500,7 @@ $('#colLevels ul').on("click", "li input", function(e) {
         var coefCSV = convertArrayOfObjectsToCSV({data: coefRows, colnames: cNames});
         var seCSV   = convertArrayOfObjectsToCSV({data: seRows, colnames: cNames});
         
-        var seCaption = "Standard errors for " +
+        var seCaption = "95% Confidence intervals for " +
           fullCaption.charAt(0).toLowerCase() + fullCaption.slice(1);
         
         if(controlTotals) {
@@ -606,11 +606,25 @@ $('#colLevels ul').on("click", "li input", function(e) {
           y_labels = y_names,
             showSEs = showSEs);
 
-          var lcl_y_line = y_ses.slice(0, 1).toString().split(',').map(Number);
-          var ucl_y_line = y_ses.slice(-1).toString().split(',').map(Number);
-          var y_min = Math.min.apply(null, lcl_y_line) - 5;
-          var y_max = Math.max.apply(null, ucl_y_line) + 5;
+          //var lcl_y_line = y_ses.slice(0, 1).toString().split(',').map(Number);
+          //var ucl_y_line = y_ses.slice(-1).toString().split(',').map(Number);
+          //var y_min = Math.min.apply(null, lcl_y_line) - 5;
+          //var y_max = Math.max.apply(null, ucl_y_line) + 5;
+
+          var lcl_y_line = y_ses.slice(0, 1).toString().split(',').map(Number).filter(val => !isNaN(val));
+          var ucl_y_line = y_ses.slice(-1).toString().split(',').map(Number).filter(val => !isNaN(val));
+   
+         // function removeNull(array) {
+         //     return array.filter(x => x !== null)
+         // }; 
+
+          var y_min = Math.min(...lcl_y_line) - 5;
+          var y_max = Math.max(...ucl_y_line) + 5;
           var y_max2 = y_max || 100;
+
+
+
+
          // var y_min = Math.min(...lcl_y_line) - 5;
           //var y_min =: Math.min.apply(...lcl_y_line) - 5;
           //var y_max =: Math.max.apply(...ucl_y_line) + 5,
@@ -629,7 +643,7 @@ $('#colLevels ul').on("click", "li input", function(e) {
           layout.margin.l = 60;
           //layout.margin.l = 60;
         //layout.xaxis = x.length < 5 ? {tickvals: x_values,  title: 'Year'} : {};
-          layout.xaxis = x.length < 15 ? { tickangle: -45, tickvals: x_values, ticktext: x_names, title: 'Year and Quarter'} : {};
+          layout.xaxis = x.length < 20 ? { tickangle: -45, tickvals: x_values, ticktext: x_names, title: 'Year and Quarter'} : {};
 //        [ '2017Q1', '2017Q2', '2017Q3', '2017Q4',
 //          '2018Q1', '2018Q2', '2018Q3', '2018Q4'],  title: 'Year'} : {};
         

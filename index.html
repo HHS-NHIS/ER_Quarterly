@@ -31,9 +31,9 @@
     <link rel="stylesheet" href="widgetbig058.css">
     <link rel="stylesheet" href="bootstrap.min.css">
 </head>
-    <body class="no-js">
+<body class="no-js">
 
-        <!-- Global Include -->
+    <!-- Global Include -->
     <!-- #include virtual="/NHISDataQueryTool/TemplatePackage/4.0/includes/global-alert.html" -->
     <div class="container-fluid header-wrapper">
         <div class="container">
@@ -73,11 +73,11 @@
                             Interactive Quarterly Early Release Estimates provide health statistics based on data from the 2019-2022 National Health Interview Survey (NHIS) for selected health topics for adults aged 18 years and over. All estimates are unadjusted percentages based on preliminary data files and are released prior to final data editing and final weighting to provide access to the most recent information from the NHIS. Estimates presented here are based on quarterly data. Estimates based on half-year data,
                             with groupings by demographic characteristics, are available in the
                             <a href="https://wwwn.cdc.gov/NHISDataQueryTool/ER_Biannual/index_biannual.html" target="_blank_">Interactive Biannual Early Release Estimates.</a>
-                <!--        </p> --> 
-                        Estimates based on the 1997–2018 NHIS can be found in
-                        <a href="https://www.cdc.gov/nchs/nhis/erkeyindicators.htm" target="_blank_"> Previous Early Release Reports on Key Health Indicators. </a>
-                        <!--    <p>
-    Use the options below to select a statistic of interest, the data view ("Trends over time" or "Cross-sectional"), data years, and grouping variables. If you select "Trends over time", you can choose a range of years. The "Cross-sectional" view displays a single year, which can be stratified by up to two grouping variables. Once a grouping variable is selected, a dropdown menu will appear, enabling selection of specific levels in each group.</p>  -->
+                            <!--        </p> -->
+                            Estimates based on the 1997–2018 NHIS can be found in
+                            <a href="https://www.cdc.gov/nchs/nhis/erkeyindicators.htm" target="_blank_"> Previous Early Release Reports on Key Health Indicators. </a>
+                            <!--    <p>
+                            Use the options below to select a statistic of interest, the data view ("Trends over time" or "Cross-sectional"), data years, and grouping variables. If you select "Trends over time", you can choose a range of years. The "Cross-sectional" view displays a single year, which can be stratified by up to two grouping variables. Once a grouping variable is selected, a dropdown menu will appear, enabling selection of specific levels in each group.</p>  -->
                         </p>
                         <p>
                             After you select the available health topic, the table will automatically be updated. Estimates can be viewed as a plot under the "Charts" tab, with line graphs for trends over time. The "Technical notes" tab displays a link to technical documentation on the measures and methodology used to produce the estimates. The generated table and graph can be downloaded with the download button  <img height="25px" src="download-white.png" alt="download button"> under each tab. To view the Korn-Graubard (KG) 95% confidence intervals, select the "95% confidence intervals" checkbox.
@@ -147,11 +147,11 @@
                                         <label for="year-start">Single quarter:</label>
                                         <select id="year-start">
                                             <!--    <option value="2020 Q3, Jul-Sep">2020 Q3, Jul-Sep</option>
-    <option value="2020 Q2, Apr-Jun">2020 Q2, Apr-Jun</option>
-     <option value="2020 Q1, Jan-Mar">2020 Q1, Jan-Mar</option>
-     <option value="2019 Q4, Oct-Dec">2019 Q4, Oct-Dec</option>
-     <option value="2019 Q3, Jul-Sep">2019 Q3, Jul-Sep</option>
-     <option value="2019 Q2, Apr-Jun">2019 Q2, Apr-Jun</option>-->
+                                            <option value="2020 Q2, Apr-Jun">2020 Q2, Apr-Jun</option>
+                                             <option value="2020 Q1, Jan-Mar">2020 Q1, Jan-Mar</option>
+                                             <option value="2019 Q4, Oct-Dec">2019 Q4, Oct-Dec</option>
+                                             <option value="2019 Q3, Jul-Sep">2019 Q3, Jul-Sep</option>
+                                             <option value="2019 Q2, Apr-Jun">2019 Q2, Apr-Jun</option>-->
                                             <option value="2019 Q1, Jan-Mar" selected>2019 Q1, Jan-Mar</option>
                                             <option value="2019 Q2, Apr-Jun">2019 Q2, Apr-Jun</option>
                                             <option value="2019 Q3, Jul-Sep">2019 Q3, Jul-Sep</option>
@@ -165,12 +165,15 @@
                                             <option value="2021 Q3, Jul-Sep">2021 Q3, Jul-Sep</option>
                                             <option value="2021 Q4, Oct-Dec">2021 Q4, Oct-Dec</option>
                                             <option value="2022 Q1, Jan-Mar">2022 Q1, Jan-Mar</option>
+                                            <option value="2022 Q2, Apr-Jun">2022 Q2, Apr-Jun</option>
+                                            <option value="2022 Q3, Jul-Sep">2022 Q3, Jul-Sep</option>
                                         </select>
                                     </div>
                                     <div class="flex-child-fill year-main">
                                         <label for="year">to:</label>
                                         <select id="year">
-                                            <option value="2022 Q2, Apr-Jun" selected>2022 Q2, Apr-Jun></option>
+                                            <option value="2022 Q3, Jul-Sep" selected>2022 Q3, Jul-Sep></option>
+                                            <option value="2022 Q2, Apr-Jun">2022 Q2, Apr-Jun</option>
                                             <option value="2022 Q1, Jan-Mar">2022 Q1, Jan-Mar</option>
                                             <option value="2021 Q4, Oct-Dec">2021 Q4, Oct-Dec</option>
                                             <option value="2021 Q3, Jul-Sep">2021 Q3, Jul-Sep</option>
@@ -292,7 +295,7 @@
                                 <div id="table-footnotes" role="region" aria-live="polite">
                                     <span id="table-caption2"></span>
                                     <!--     <h3>Quarterly trends</h3>
-         <span id="trendnotes"></span>  -->
+                                    <span id="trendnotes"></span>  -->
                                     <h3>Notes</h3>
                                     <span id="qnotes"></span>
                                     <!--         <span id="table-caption3"></span>  -->
@@ -303,22 +306,22 @@
                                         who completed the NHIS in 2019 were recontacted by telephone and asked to participate again. Response rates were lower and respondent characteristics were different
                                         in April–December 2020. Differences observed in estimates between April–December 2020 and other time periods may have been impacted by these differences in respondent characteristics.
                                     </p>
-                            <!--         <p>
-                                        Due to the COVID-19 pandemic, NHIS data collection switched to a telephone-only mode beginning on March 19, 2020.
-                                        Personal visits resumed in all areas in September 2020, but cases were still attempted by telephone first.
-                                        These changes resulted in <a href=" https://www.cdc.gov/nchs/data/nhis/earlyrelease/nonresponse202102-508.pdf" target="_blank_">
-                                            lower response rates and differences in respondent characteristics
-                                        </a> for April 2020&#8211March 2021. Differences observed in estimates between April 2020&#8211March 2021 and earlier time periods may still be impacted by these changes.
-                                    </p>
-                                       <p>
-                                        Due to the COVID-19 pandemic, NHIS data collection switched to a telephone-only mode beginning March 19, 2020.
-                                        This resulted in lower response rates and differences in respondent characteristics for Quarter 2 (April–June).
-                                         Differences observed in estimates between April–June 2020 and earlier time periods may be partially or fully attributable to these changes.
-                                         </p>-->
+                                    <!--         <p>
+                                                Due to the COVID-19 pandemic, NHIS data collection switched to a telephone-only mode beginning on March 19, 2020.
+                                                Personal visits resumed in all areas in September 2020, but cases were still attempted by telephone first.
+                                                These changes resulted in <a href=" https://www.cdc.gov/nchs/data/nhis/earlyrelease/nonresponse202102-508.pdf" target="_blank_">
+                                                    lower response rates and differences in respondent characteristics
+                                                </a> for April 2020&#8211March 2021. Differences observed in estimates between April 2020&#8211March 2021 and earlier time periods may still be impacted by these changes.
+                                            </p>
+                                               <p>
+                                                Due to the COVID-19 pandemic, NHIS data collection switched to a telephone-only mode beginning March 19, 2020.
+                                                This resulted in lower response rates and differences in respondent characteristics for Quarter 2 (April–June).
+                                                 Differences observed in estimates between April–June 2020 and earlier time periods may be partially or fully attributable to these changes.
+                                                 </p>-->
                                     <p>
                                         Estimates are based on household interviews of a sample of the civilian noninstitutionalized population and are based on preliminary data files.
                                         Unknowns were not included in the denominators when calculating percentages. For more information on the data source, methods, and definitions used for this table or chart, refer to the
-                                        <a href="https://wwwn.cdc.gov/NHISDataQueryTool/ER_Quarterly/earlyrelease202211_tech.pdf" target="_blank_">
+                                        <a href="https://wwwn.cdc.gov/NHISDataQueryTool/ER_Quarterly/earlyrelease202301_tech.pdf" target="_blank_">
                                             Technical Notes for Early Release Estimates Based on data from the National Health Interview Survey.
                                         </a>
                                     </p>
@@ -339,7 +342,7 @@
                                 <div id="plot-warning">No non-missing data available for selections. Please try again.</div>
                                 <div id="plot-footnotes" class="in-front plot-dependent" role="region" aria-live="polite"></div>
                                 <!--      <h3>Quarterly trends</h3>
-    <span id="plot-trendnotes"></span>  -->
+                                <span id="plot-trendnotes"></span>  -->
                                 <h3>Notes</h3>
                                 <span id="plot-qnotes"></span>
                                 <!--       <span id="plot-caption3"></span>  -->
@@ -354,7 +357,7 @@
                                     Estimates are based on household interviews of a sample of the civilian noninstitutionalized population and are based on preliminary data files.
                                     Unknowns were not included in the denominators when calculating percentages. For more information on the data source,
                                     methods, and definitions used for this table or chart, refer to the
-                                    <a href="https://wwwn.cdc.gov/NHISDataQueryTool/ER_Quarterly/earlyrelease202211_tech.pdf" target="_blank_">
+                                    <a href="https://wwwn.cdc.gov/NHISDataQueryTool/ER_Quarterly/earlyrelease202301_tech.pdf" target="_blank_">
                                         Technical Notes for Early Release Estimates Based on data from the National Health Interview Survey.
                                     </a>
                                 </p>
@@ -366,12 +369,12 @@
                                 <h3>Interactive Quarterly Early Release Estimates</h3>
                                 <p>
                                     <!--        Interactive Quarterly Early Release Estimates are tables and charts of descriptive statistics for various health measures
-        including health status, health care service access, health care service utilization, and health behaviors.
-        All estimates are unadjusted percentages based on preliminary data files and are released prior to final data editing and final weighting
-        to provide access to the most recent information from the National Health Interview Survey.-->
+                                    including health status, health care service access, health care service utilization, and health behaviors.
+                                    All estimates are unadjusted percentages based on preliminary data files and are released prior to final data editing and final weighting
+                                    to provide access to the most recent information from the National Health Interview Survey.-->
                                     For more information on the data source, methods, and definitions used for these tables and charts,
                                     refer to the
-                                    <a href="https://wwwn.cdc.gov/NHISDataQueryTool/ER_Quarterly/earlyrelease202211_tech.pdf" target="_blank_">
+                                    <a href="https://wwwn.cdc.gov/NHISDataQueryTool/ER_Quarterly/earlyrelease202301_tech.pdf" target="_blank_">
                                         Technical Notes for Early Release Estimates Based on data from the National Health Interview Survey.
                                     </a>
                                 </p>
@@ -381,14 +384,14 @@
                                 <a href="https://www.cdc.gov/nchs/nhis/erkeyindicators.htm " target="_blank_">Early Release estimates for key health indicators based on the 1997–2018 NHIS</a>
                                 </p>
 
-                                    Access to the full dataset can be found on Data.CDC.gov by clicking the link below:
+                                Access to the full dataset can be found on Data.CDC.gov by clicking the link below:
                                 <p></p>
                                 <a href="https://data.cdc.gov/dataset/NHIS-Interactive-Quarterly-Early-Release-Estimates/wpti-gvdi" target="_blank_">NHIS Interactive Quarterly Early Release Estimates</a>
                                 </p>
                                 <!--   <p>Previous year Summary Health Statistics may be accessed by clicking the links below:</p>
-    <p><a href="/nchs/nhis/SHS/tables.htm">Tables of Summary Health Statistics (2013 NHIS and forward)</a></p>
-    <p><a href="/nchs/nhis/SHS_1997_2012.htm">Summary Health Statistics Vital and Health Statistics Series 10 Reports (1997&ndash;2012 NHIS)</a></p>
-    <p><a href="/nchs/nhis/quest_doc.htm">Current Estimates Vital and Health Statistics Series 10 Reports (1962&ndash;1996 NHIS)</a></p>-->
+                                <p><a href="/nchs/nhis/SHS/tables.htm">Tables of Summary Health Statistics (2013 NHIS and forward)</a></p>
+                                <p><a href="/nchs/nhis/SHS_1997_2012.htm">Summary Health Statistics Vital and Health Statistics Series 10 Reports (1997&ndash;2012 NHIS)</a></p>
+                                <p><a href="/nchs/nhis/quest_doc.htm">Current Estimates Vital and Health Statistics Series 10 Reports (1962&ndash;1996 NHIS)</a></p>-->
                             </div>
                         </div>
                     </div>
@@ -488,7 +491,7 @@
     </script>
 
     <!--#include virtual="/NHISDataQueryTool/TemplatePackage/4.0/includes/page-bottom-extras.html" -->
-
+    <script src="jquery_3.4.1.min.js"></script>
     <script src="datatables.min.js"></script>
     <script src="plotly-latest.min.js"></script>
 
@@ -504,11 +507,13 @@
 
     <script type="text/javascript" src="basic.js"></script>
 
+    <!--<script src="functions.js"></script>-->
     <script src="functions.js"></script>
+   
     <script src="init.js"></script>
     <script src="notes.js"></script>
     <script src="em.js"></script>
 
 
-    </body>
+</body>
 </html>

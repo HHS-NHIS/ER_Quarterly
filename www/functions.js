@@ -773,8 +773,13 @@ function notIn(array, compare) {
       
       for(var j = 0; j < y_i.length; j++) {
       
-      var y  = y_i[j].map(toNumber);
-      var se = ses_i[j].map(toNumber);
+          var y = y_i[j].map(toNumber);
+          var se = ses_i[j].map(toNumber);
+          var y = y_i[j].map(toNumber);
+          var test = y_ses;
+          var LCL_array = []; var UCL_array = [];
+          var SE_split = test[j].toString().split(",").map(Number);  // just split once
+     //var SE_split2 = SE_split[j].map(toNumber);
       
       // SE ribbon: split into non-null pieces
       var null_i  = nullIndexes(y);
@@ -805,7 +810,61 @@ function notIn(array, compare) {
       var x_se = x_segment.concat(x_segment.slice().reverse());
       var y_se = LCL_line.concat(UCL_line.reverse());
 
-      
+
+
+      var y_se2 = y_se.filter(val => !isNaN(val))
+      //var y_se2 = y_se.map(y_se => { return isNaN(y_se) ? 0 : y_se });
+      var sum = y_se2.reduce((a, b) => a + b, 0);
+      var avg = (sum / y_se2.length) || 0;
+      var y_se3 = y_se.map(y_se => { return isNaN(y_se) ? avg : y_se });
+      //var y_se2 = y_se.map(y_se => { return isNaN(y_se) ? 0: y_se });
+      var SE_split2 = SE_split.map(SE_split => { return isNaN(SE_split) ? avg : SE_split });
+
+
+
+
+
+          var LCL_new = SE_split2, UCL_new = [];
+          // var LCL_new =  SE_split, UCL_new = [];
+          for (var z = LCL_new.length - 1; z >= 0; z--) {
+              if (z % 2 === 1) {
+                  UCL_new.unshift(LCL_new.splice(z, 1)[0])
+              }
+          }
+
+
+          var LCLdiff = [];
+          for (let i = 0; i < y.length; i++) {
+              LCLdiff.push(Math.abs(y[i] - LCL_new[i]));
+          }
+          var UCLdiff = [];
+          for (let i = 0; i < y.length; i++) {
+              UCLdiff.push(Math.abs(y[i] - UCL_new[i]));
+          }
+          // var LCLdiff=y-LCL_new;
+          //  var UCLdiff=y-UCL_new;
+
+          //     var LCLdiff = y.map(function(num, idx) {return y - LCL_new[idx];});
+          //    var UCLdiff = y.map(function(num, idx) {return y - UCL_new[idx];});
+
+          var LCLUCL_new = [[LCL_new], [UCL_new]];
+          const LCLUCL_SEerror = UCL_new.concat(LCL_new.reverse());
+          const LCLUCL_SEdiff = UCLdiff.concat(LCLdiff);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       //var y_se = LCL.concat(UCL.reverse());
       
       var CI_color = y_segment.length > 1 ? "transparent" : colors[j];
@@ -825,18 +884,29 @@ function notIn(array, compare) {
     //  array: se_segment.map(function(x) {return x*1.96;})
     //  },
       
-      error_y: {type: 'data', visible: showSEs, color: CI_color,symmetric: false,
-      array: LCL_line.map(function(x) {return x;}),
-      arrayminus: UCL_line.map(function(x) {return x;}),
-      },
-      text: ses_i[k],
+     // error_y: {type: 'data', visible: showSEs, color: CI_color,symmetric: false,
+     // array: LCL_line.map(function(x) {return x;}),
+   //  // arrayminus: UCL_line.map(function(x) {return x;}),
+   //   },
+    //      text: ses_i[k],
+
+
+          errnewSEor_y: {
+              type: 'data', visible: showSEs, color: CI_color, symmetric: false,
+              array: UCLdiff,
+              arrayminus: LCLdiff,
+          },
+          text: ses_i[j],
+
       hovertemplate: "%{y:1} " + "("+ "%{text}"+")"+  "<extra></extra>",
       //hoverinfo: "y"
       };
       newdata.push(newtrace);
       
       var seRibbon = {
-      x: x_se, y: y_se,
+      x: x_se, y: LCLUCL_SEerror,
+     // x: x_se, y: y_se3,
+      //x: x_se, y: y_se,
       fill: "toself",
       fillcolor: acolors[j],
       line: {color: "transparent"},
